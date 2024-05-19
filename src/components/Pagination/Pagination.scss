@@ -1,0 +1,70 @@
+@import '@/styles/variables.scss';
+
+.pagination-wrapper {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: white;
+    box-shadow: 5px 0px 5px gray;
+    padding: 10px 10px 10px 235px;
+    z-index: 10;
+    min-height: 60px;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    .pagination-button {
+        font-size: 20px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.2s ease;
+        user-select: none;
+        
+        &:hover:not(&:disabled) {
+            cursor: pointer;
+            color: white;
+            background-color: $blue-color;
+        }
+    }
+}
+
+
+.pages {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 18px;
+
+    .page {
+        width: 30px;
+        text-align: center;
+        cursor: pointer;
+        transition: color 0.2s ease;
+    
+        &:hover {
+            color: $blue-color-hover;
+        }
+    }
+}
+
+.current-page {
+    color: $blue-color;
+}
+
+@media (max-width: 600px) {
+    .pagination-wrapper {
+        padding: 10px;
+    }
+
+    .pagination-controls {
+        gap: 5px;
+
+        .pagination-button {
+            padding: 5px;
+        }
+    }
+}

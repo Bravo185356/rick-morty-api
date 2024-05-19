@@ -1,0 +1,17 @@
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.empty-message,
+.cards {
+    padding: 90px 40px 40px 275px;
+}
+
+@media (max-width: 600px) {
+    .cards {
+        padding: 277px 30px 20px 30px;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}

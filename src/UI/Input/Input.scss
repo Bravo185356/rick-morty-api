@@ -1,0 +1,13 @@
+@import '@/styles/variables.scss';
+
+.input {
+    position: relative;
+    border-bottom: 1px solid black;
+    font-size: 16px;
+    padding: 5px 0px;
+
+    &:focus {
+        border-bottom: 2px solid $blue-color;
+        margin-bottom: -1px;
+    }
+}
