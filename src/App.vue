@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <FilterBlock @update-list="updateCharacterList" @reset-filter="currentPage = 1" />
+        <FilterBlock @update-list="currentPage = 1" @reset-filter="currentPage = 1" />
         <div class="content">
             <Pagination @update-current-page="changePage" :totalPages="totalPages" :currentPage="currentPage" />
             <CharactersList :characterList="characterList" :totalPages="totalPages" />
@@ -56,16 +56,12 @@ function changePage(newPage) {
     currentPage.value = newPage
 }
 
-function updateCharacterList() {
-    currentPage.value = 1
-}
-
 watch(() => route.query, () => {
     getCharacterList()
 })
 
 onMounted(() => {
     router.push({ path: '/', query: { page: 1 }})
-    getCharacterList({ page: 1 })
+    getCharacterList()
 })
 </script>
