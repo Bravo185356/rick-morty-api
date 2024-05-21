@@ -31,11 +31,11 @@
     import { ref } from 'vue';
     import './FilterBlock.scss';
     import Input from '@/UI/Input/Input.vue';
-    import { useRouter, useRoute } from 'vue-router';
+    import { useRouter } from 'vue-router';
 
     const router = useRouter()
 
-    const emit = defineEmits(['updateList', 'resetFilter'])
+    const emit = defineEmits(['resetPage'])
 
     const nameInput = ref('')
     const statusInput = ref('')
@@ -44,18 +44,12 @@
     function resetFilter() {
         nameInput.value = ''
         statusInput.value = ''
-        emit('resetFilter')
+        emit('resetPage')
         filterApplies.value = false
         router.push({ path: '/', query: { page: 1 }})
     }
 
     async function getFilteredList() {
-        if (!nameInput.value && !statusInput.value) {
-            emit('resetFilter')
-            filterApplies.value = false
-            return
-        }
-
         const filterParams = {
             page: 1,
         }
@@ -69,6 +63,6 @@
 
         router.push({ path: '/', query: filterParams })
         filterApplies.value = true
-        emit('updateList', filterParams)
+        emit('resetPage')
     }
 </script>

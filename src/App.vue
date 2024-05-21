@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <FilterBlock @update-list="currentPage = 1" @reset-filter="currentPage = 1" />
+        <FilterBlock @reset-page="currentPage = 1" @reset-filter="currentPage = 1" />
         <div class="content">
             <Pagination @update-current-page="changePage" :totalPages="totalPages" :currentPage="currentPage" />
             <CharactersList :characterList="characterList" :totalPages="totalPages" />
